@@ -15,6 +15,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         "Meals": ["Breakfasts", "Lunches", "Supper"],
         "Drinks": ["Juices", "Water", "Alchoholic delights", "Coffees"]
     ]
+    let dataOrder: [String] = ["Meals", "Drinks"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,6 +30,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.view.addSubview(self.mainView)
         self.mainView.appear()
+        self.mainView.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "subtitleCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +43,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let valueCounts: [Int] = items.values.map({ $0.count })
-        return valueCounts[section]
+        return (items[dataOrder[section]]?.count)!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -53,17 +55,29 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //}
     }
     
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        // Gets the header view as a UITableViewHeaderFooterView and changes the text colour and adds above blur effect
+        let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        headerView.textLabel!.textColor = Colors.eableBlack()
+        headerView.textLabel!.font = UIFont(name: "SFUIText-Bold", size: 14)!
+        headerView.tintColor = Colors.eableViolet()
+    }
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let titles: [String] = items.keys.map({ $0 })
-        return titles[section]
+        return dataOrder[section]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let titles: [String] = items.keys.map({ $0 })
-        let title: String = titles[indexPath.row]
+        let title: String = dataOrder[indexPath.section]
         
-        let cell = UITableViewCell()
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "subtitleCell")
+        cell.backgroundColor = Colors.eableBlack()
+        cell.textLabel?.textColor = Colors.eablePink()
+        cell.textLabel?.font = UIFont(name: "SFUIText-Bold", size: 12)!
         cell.textLabel?.text = items[title]![indexPath.row]
+        cell.detailTextLabel?.text = "Detail"
+        cell.detailTextLabel?.textColor = Colors.eablePink()
+        cell.detailTextLabel?.font = UIFont(name: "SFUIText-Regular", size: 12)!
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell

@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootNavigation.navigationBar.barStyle = UIBarStyle.Black
             
             UINavigationBar.appearance().titleTextAttributes = [
-                NSForegroundColorAttributeName: UIColor.whiteColor()//,
-                //NSFontAttributeName: UIFont(name: "SFUIText-Regular", size: 16)!
+                NSForegroundColorAttributeName: UIColor.whiteColor(),
+                NSFontAttributeName: UIFont(name: "SFUIText-Regular", size: 16)!
             ]
             
             if let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as? UIView {
