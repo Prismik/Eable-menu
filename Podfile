@@ -7,7 +7,7 @@ target 'Menu' do
 
   # Pods for Menu
   pod 'SwiftyJSON'
-  pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire'
   pod 'Concorde'
 
 
