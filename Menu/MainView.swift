@@ -52,6 +52,6 @@ class MainView: UIView {
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[table]-0-|",
             options: NSLayoutFormatOptions.AlignAllCenterY, metrics: nil, views: views))
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[title(90)]-0-[table]-15-|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[title(90)]-0-[table]-15-|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
     }
 }

@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				515ADB7E1DCE80FD00F84850 /* Composite */,
-				51A471131DCE646F00B4E9CF /* Main */,
+				51A471131DCE646F00B4E9CF /* Controllers */,
 				51A471101DCE63D500B4E9CF /* Builder */,
 				51338A911DCD97BB00E286D0 /* AppDelegate.swift */,
 				51338A981DCD97BB00E286D0 /* Assets.xcassets */,
@@ -257,13 +257,13 @@
 			name = Builder;
 			sourceTree = "<group>";
 		};
-		51A471131DCE646F00B4E9CF /* Main */ = {
+		51A471131DCE646F00B4E9CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				51338A931DCD97BB00E286D0 /* MainViewController.swift */,
 				51A4710E1DCE627800B4E9CF /* MainView.swift */,
 			);
-			name = Main;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		8F8A46BFB74F0041771C2471 /* Frameworks */ = {

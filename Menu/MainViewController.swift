@@ -11,14 +11,23 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var mainView: MainView!
-    var items: [String: [String]] = [
-        "Meals": ["Breakfasts", "Lunches", "Supper"],
-        "Drinks": ["Juices", "Water", "Alchoholic delights", "Coffees"]
-    ]
+    
+    var items: [String: [MenuItemGroup]] = [:]
     let dataOrder: [String] = ["Meals", "Drinks"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var breakfast = MenuItemGroup(title: "Breakfasts", subtitle: "Available until 13:00")
+        var lunches = MenuItemGroup(title: "Lunches", subtitle: "Specials on friday")
+        var suppers = MenuItemGroup(title: "Supper", subtitle: "Starting from 15:00")
+        
+        var juices = MenuItemGroup(title: "Juices", subtitle: "The best juices in town")
+        var water = MenuItemGroup(title: "Water", subtitle: "Freely available, JUST FOR YOU")
+        var alchohol = MenuItemGroup(title: "Alchoholic delights", subtitle: "Adults only")
+        var coffee = MenuItemGroup(title: "Coffees", subtitle: "Pack a punch")
+        
+        items["Meals"] = [breakfast, lunches, suppers]
+        items["Drinks"] = [juices, water, alchohol, coffee]
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Eable Menu"
         self.view.backgroundColor = Colors.eableViolet()
@@ -69,13 +78,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let title: String = dataOrder[indexPath.section]
+        let item = items[title]![indexPath.row]
         
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "subtitleCell")
         cell.backgroundColor = Colors.eableBlack()
         cell.textLabel?.textColor = Colors.eablePink()
         cell.textLabel?.font = UIFont(name: "SFUIText-Bold", size: 12)!
-        cell.textLabel?.text = items[title]![indexPath.row]
-        cell.detailTextLabel?.text = "Detail"
+        cell.textLabel?.text = item.title()
+        cell.detailTextLabel?.text = item.subtitle()
         cell.detailTextLabel?.textColor = Colors.eablePink()
         cell.detailTextLabel?.font = UIFont(name: "SFUIText-Regular", size: 12)!
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
