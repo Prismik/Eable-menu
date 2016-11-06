@@ -1,5 +1,5 @@
 # Eable-menu
-![alt tag](https://raw.githubusercontent.com/Prismik/Eable-menu/master/eable.png)
+![alt tag](https://raw.githubusercontent.com/Prismik/Eable-menu/master/eable.png =1200x840)
 
 
 - A customer should be able to use smart tablet to navigate an attractive menu created previously. 
