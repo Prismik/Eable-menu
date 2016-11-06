@@ -15,9 +15,32 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var items: [String: [MenuItemGroup]] = [:]
     let dataOrder: [String] = ["Meals", "Drinks"]
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.title = "Eable Menu"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationItem.title = "Back"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var breakfast = MenuItemGroup(title: "Breakfasts", subtitle: "Available until 13:00")
+        // Eggs
+        breakfast.addChild(MenuItem(title: "Special Toasty", subtitle: "2 eggs, 2 choices of meat, baked beans, crepe & french toast"), toCategory: "Eggs")
+        breakfast.addChild(MenuItem(title: "Scrambled", subtitle: "2 scrambled eggs with spinach & cheddar"), toCategory: "Eggs")
+        // Sandwiches
+        breakfast.addChild(MenuItem(title: "Deluxe grilled cheese", subtitle: "Cheddar, bacon, egg"), toCategory: "Morning sandwiches")
+        breakfast.addChild(MenuItem(title: "BLT", subtitle: "Bacon, lettuce, tomatoes"), toCategory: "Morning sandwiches")
+        // Benedicts
+        breakfast.addChild(MenuItem(title: "Traditional", subtitle: "Ham, cheddar, hollandaise"), toCategory: "Benedicts")
+        breakfast.addChild(MenuItem(title: "Florentine", subtitle: "Spinach, cheddar, hollandaise"), toCategory: "Benedicts")
+        breakfast.addChild(MenuItem(title: "Forestier", subtitle: "Mushrooms, swiss cheese, hollandaise"), toCategory: "Benedicts")
+        // Omelets
+        breakfast.addChild(MenuItem(title: "Champêtre", subtitle: "Sausage, mushrooms, cheese"), toCategory: "Omelets")
+        breakfast.addChild(MenuItem(title: "Western", subtitle: "Peppers, red onions, ham, cheese"), toCategory: "Omelets")
+        breakfast.addChild(MenuItem(title: "Campagnarde", subtitle: "Ham, asparagus"), toCategory: "Omelets")
+        
         var lunches = MenuItemGroup(title: "Lunches", subtitle: "Specials on friday")
         var suppers = MenuItemGroup(title: "Supper", subtitle: "Starting from 15:00")
         
@@ -28,8 +51,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         items["Meals"] = [breakfast, lunches, suppers]
         items["Drinks"] = [juices, water, alchohol, coffee]
+        
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Eable Menu"
         self.view.backgroundColor = Colors.eableViolet()
         
         let navigationController = self.navigationController as! TopMenuController
@@ -56,12 +79,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //if let cell = tableView.cellForRowAtIndexPath(indexPath) as? FenceSelectorTableCell {
-        //    self.cellSelectionDelegate.didSelectFenceModel(cell.parameters)
-        //    if let topMenu = self.navigationController as? TopMenuController {
-        //        topMenu.popViewControllerAnimated(true)
-        //    }
-        //}
+        if let topMenu = self.navigationController as? TopMenuController {
+            let title: String = dataOrder[indexPath.section]
+            let selectedItem: MenuNode = items[title]![indexPath.row]
+            if let group: MenuItemGroup = selectedItem as? MenuItemGroup {
+                let controller = SubViewController(title: selectedItem.title(), children: group.children(), order: group.order())
+                topMenu.pushViewController(controller, animated: true)
+            }
+            else if let item: MenuItem = selectedItem as? MenuItem {
+                
+            }
+        }
     }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

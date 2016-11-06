@@ -13,7 +13,8 @@ class MenuItemGroup: MenuNode {
     private var groupSubtitle: String
     private var visibleFrom: Int = 0
     private var visibleTo: Int = 24
-    private var children: [MenuNode] = []
+    private var childrenNode: [String: [MenuNode]] = [:]
+    private var childrenOrder: [String] = []
     
     init(title t: String, subtitle s: String) {
         groupTitle = t
@@ -59,12 +60,23 @@ class MenuItemGroup: MenuNode {
         
     }
     
-    func addChild(node: MenuNode) {
-        children.append(node)
+    func addChild(node: MenuNode, toCategory category: String) {
+        if childrenNode[category] == nil {
+            childrenOrder.append(category)
+            childrenNode[category] = []
+            childrenNode[category]!.append(node)
+        }
+        else {
+            childrenNode[category]!.append(node)
+        }
     }
     
-    func getChildren() -> [(String, String)] {
-        return children.map({ item in return (item.title(), item.subtitle()) })
+    func children() -> [String: [MenuNode]] {
+        return childrenNode
+    }
+    
+    func order() -> [String] {
+        return childrenOrder
     }
 }
 

@@ -35,6 +35,9 @@
 		515ADB791DCE71E100F84850 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 515ADB641DCE71E100F84850 /* SF-UI-Text-SemiboldItalic.otf */; };
 		515ADB7B1DCE724A00F84850 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515ADB7A1DCE724A00F84850 /* Utils.swift */; };
 		515ADB7D1DCE80F600F84850 /* MenuItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515ADB7C1DCE80F600F84850 /* MenuItemGroup.swift */; };
+		515ADB801DCE98B500F84850 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515ADB7F1DCE98B500F84850 /* MenuItem.swift */; };
+		515ADB821DCE9C1000F84850 /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515ADB811DCE9C1000F84850 /* SubViewController.swift */; };
+		515ADB841DCE9C1F00F84850 /* SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515ADB831DCE9C1F00F84850 /* SubView.swift */; };
 		51A4710B1DCE592200B4E9CF /* TopMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A4710A1DCE592200B4E9CF /* TopMenuController.swift */; };
 		51A4710D1DCE5A8B00B4E9CF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A4710C1DCE5A8B00B4E9CF /* Colors.swift */; };
 		51A4710F1DCE627800B4E9CF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A4710E1DCE627800B4E9CF /* MainView.swift */; };
@@ -101,6 +104,9 @@
 		515ADB641DCE71E100F84850 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		515ADB7A1DCE724A00F84850 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Menu/Utils.swift; sourceTree = "<group>"; };
 		515ADB7C1DCE80F600F84850 /* MenuItemGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemGroup.swift; sourceTree = "<group>"; };
+		515ADB7F1DCE98B500F84850 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		515ADB811DCE9C1000F84850 /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
+		515ADB831DCE9C1F00F84850 /* SubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubView.swift; sourceTree = "<group>"; };
 		51A4710A1DCE592200B4E9CF /* TopMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuController.swift; sourceTree = "<group>"; };
 		51A4710C1DCE5A8B00B4E9CF /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		51A4710E1DCE627800B4E9CF /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				515ADB7C1DCE80F600F84850 /* MenuItemGroup.swift */,
+				515ADB7F1DCE98B500F84850 /* MenuItem.swift */,
 			);
 			name = Composite;
 			sourceTree = "<group>";
@@ -262,6 +269,8 @@
 			children = (
 				51338A931DCD97BB00E286D0 /* MainViewController.swift */,
 				51A4710E1DCE627800B4E9CF /* MainView.swift */,
+				515ADB811DCE9C1000F84850 /* SubViewController.swift */,
+				515ADB831DCE9C1F00F84850 /* SubView.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -565,7 +574,10 @@
 				515ADB7B1DCE724A00F84850 /* Utils.swift in Sources */,
 				51A4710F1DCE627800B4E9CF /* MainView.swift in Sources */,
 				51A4710B1DCE592200B4E9CF /* TopMenuController.swift in Sources */,
+				515ADB801DCE98B500F84850 /* MenuItem.swift in Sources */,
+				515ADB821DCE9C1000F84850 /* SubViewController.swift in Sources */,
 				51A471121DCE642100B4E9CF /* MenuParser.swift in Sources */,
+				515ADB841DCE9C1F00F84850 /* SubView.swift in Sources */,
 				515ADB7D1DCE80F600F84850 /* MenuItemGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
