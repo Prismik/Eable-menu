@@ -1,6 +1,5 @@
 # Eable-menu
-![alt tag](https://raw.githubusercontent.com/Prismik/Eable-menu/master/eable.png =1200x840)
-
+<img src="https://raw.githubusercontent.com/Prismik/Eable-menu/master/eable.png"  width="1000" height="640" />
 
 - A customer should be able to use smart tablet to navigate an attractive menu created previously. 
 - It must be possible for him to order items at any time. 
