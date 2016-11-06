@@ -1,5 +1,5 @@
 # Eable-menu
-Order in restaurant made simple
+![alt tag](https://raw.githubusercontent.com/Prismik/Eable-menu/master/eable.png)
 
 
 - A customer should be able to use smart tablet to navigate an attractive menu created previously. 
