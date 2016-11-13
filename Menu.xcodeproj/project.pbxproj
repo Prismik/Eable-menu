@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		253901891DD7C611000E2C23 /* benedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 253901881DD7C611000E2C23 /* benedict.jpg */; };
+		25A735C21DD6681700E3B692 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A735C11DD6681700E3B692 /* ProductViewController.swift */; };
+		25A735C41DD6698700E3B692 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A735C31DD6698700E3B692 /* ProductView.swift */; };
+		25A735C61DD66A5C00E3B692 /* MenuItemOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A735C51DD66A5C00E3B692 /* MenuItemOption.swift */; };
 		51338A921DCD97BB00E286D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51338A911DCD97BB00E286D0 /* AppDelegate.swift */; };
 		51338A941DCD97BB00E286D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51338A931DCD97BB00E286D0 /* MainViewController.swift */; };
 		51338A991DCD97BB00E286D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51338A981DCD97BB00E286D0 /* Assets.xcassets */; };
@@ -70,6 +74,10 @@
 		0A29893A86FC8F36DCC9B274 /* Pods_Menu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Menu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1725E59D532C28352C72074E /* Pods_MenuUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MenuUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		206F214167470CC476608C9D /* Pods-Menu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Menu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Menu/Pods-Menu.release.xcconfig"; sourceTree = "<group>"; };
+		253901881DD7C611000E2C23 /* benedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = benedict.jpg; sourceTree = "<group>"; };
+		25A735C11DD6681700E3B692 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		25A735C31DD6698700E3B692 /* ProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		25A735C51DD66A5C00E3B692 /* MenuItemOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemOption.swift; sourceTree = "<group>"; };
 		51338A8E1DCD97BA00E286D0 /* Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Menu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51338A911DCD97BB00E286D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51338A931DCD97BB00E286D0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -160,9 +168,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		253901871DD7C611000E2C23 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				253901881DD7C611000E2C23 /* benedict.jpg */,
+			);
+			name = images;
+			path = Menu/images;
+			sourceTree = "<group>";
+		};
 		51338A851DCD97BA00E286D0 = {
 			isa = PBXGroup;
 			children = (
+				253901871DD7C611000E2C23 /* images */,
 				515ADB7A1DCE724A00F84850 /* Utils.swift */,
 				515ADB4F1DCE71E000F84850 /* fonts */,
 				51A471141DCE669C00B4E9CF /* LaunchScreen.storyboard */,
@@ -252,6 +270,7 @@
 			children = (
 				515ADB7C1DCE80F600F84850 /* MenuItemGroup.swift */,
 				515ADB7F1DCE98B500F84850 /* MenuItem.swift */,
+				25A735C51DD66A5C00E3B692 /* MenuItemOption.swift */,
 			);
 			name = Composite;
 			sourceTree = "<group>";
@@ -271,6 +290,8 @@
 				51A4710E1DCE627800B4E9CF /* MainView.swift */,
 				515ADB811DCE9C1000F84850 /* SubViewController.swift */,
 				515ADB831DCE9C1F00F84850 /* SubView.swift */,
+				25A735C11DD6681700E3B692 /* ProductViewController.swift */,
+				25A735C31DD6698700E3B692 /* ProductView.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -338,6 +359,7 @@
 				51338AAA1DCD97BB00E286D0 /* Frameworks */,
 				51338AAB1DCD97BB00E286D0 /* Resources */,
 				9007A0DE9560CE810E8ABFA6 /* [CP] Copy Pods Resources */,
+				D062489D0554D13A813BCDDE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -362,13 +384,16 @@
 					51338A8D1DCD97BA00E286D0 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = YZ6HPYB3E9;
+						LastSwiftMigration = 0810;
 					};
 					51338AA11DCD97BB00E286D0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 51338A8D1DCD97BA00E286D0;
 					};
 					51338AAC1DCD97BB00E286D0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 51338A8D1DCD97BA00E286D0;
 					};
 				};
@@ -421,6 +446,7 @@
 				515ADB6D1DCE71E100F84850 /* SF-UI-Display-Ultralight.otf in Resources */,
 				515ADB731DCE71E100F84850 /* SF-UI-Text-LightItalic.otf in Resources */,
 				515ADB701DCE71E100F84850 /* SF-UI-Text-Heavy.otf in Resources */,
+				253901891DD7C611000E2C23 /* benedict.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +494,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6DE850A570EF5FC5A4F24323 /* [CP] Embed Pods Frameworks */ = {
@@ -498,7 +524,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9007A0DE9560CE810E8ABFA6 /* [CP] Copy Pods Resources */ = {
@@ -546,6 +572,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Menu/Pods-Menu-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D062489D0554D13A813BCDDE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MenuUITests/Pods-MenuUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F0DA37B9D069A71B3477DCAB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -558,7 +599,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -573,7 +614,10 @@
 				51338A921DCD97BB00E286D0 /* AppDelegate.swift in Sources */,
 				515ADB7B1DCE724A00F84850 /* Utils.swift in Sources */,
 				51A4710F1DCE627800B4E9CF /* MainView.swift in Sources */,
+				25A735C41DD6698700E3B692 /* ProductView.swift in Sources */,
+				25A735C61DD66A5C00E3B692 /* MenuItemOption.swift in Sources */,
 				51A4710B1DCE592200B4E9CF /* TopMenuController.swift in Sources */,
+				25A735C21DD6681700E3B692 /* ProductViewController.swift in Sources */,
 				515ADB801DCE98B500F84850 /* MenuItem.swift in Sources */,
 				515ADB821DCE9C1000F84850 /* SubViewController.swift in Sources */,
 				51A471121DCE642100B4E9CF /* MenuParser.swift in Sources */,
@@ -711,6 +755,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Eable.Menu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -726,6 +771,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Eable.Menu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -738,6 +784,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Eable.MenuTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Menu.app/Menu";
 			};
 			name = Debug;
@@ -751,6 +798,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Eable.MenuTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Menu.app/Menu";
 			};
 			name = Release;
@@ -763,6 +811,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Eable.MenuUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Menu;
 			};
 			name = Debug;
@@ -775,6 +824,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Eable.MenuUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Menu;
 			};
 			name = Release;

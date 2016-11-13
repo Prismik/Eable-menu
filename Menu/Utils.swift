@@ -10,30 +10,30 @@ import Foundation
 import UIKit
 import MessageUI
 
-public class Utils {
-    class func removeTableViewCellBorders(cell: UITableViewCell) {
-        cell.layoutMargins = UIEdgeInsetsZero
-        cell.separatorInset = UIEdgeInsetsZero
+open class Utils {
+    class func removeTableViewCellBorders(_ cell: UITableViewCell) {
+        cell.layoutMargins = UIEdgeInsets.zero
+        cell.separatorInset = UIEdgeInsets.zero
         cell.preservesSuperviewLayoutMargins = false
     }
     
-    class func resizeImage(image: UIImage, newSize: CGSize) -> (UIImage) {
-        let newRect = CGRectIntegral(CGRectMake(0,0, newSize.width, newSize.height))
-        let imageRef = image.CGImage
+    class func resizeImage(_ image: UIImage, newSize: CGSize) -> (UIImage) {
+        let newRect = CGRect(x: 0,y: 0, width: newSize.width, height: newSize.height).integral
+        let imageRef = image.cgImage
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         let context = UIGraphicsGetCurrentContext()
         
         // Set the quality level to use when rescaling
-        CGContextSetInterpolationQuality(context, .High)
-        let flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, newSize.height)
+        context!.interpolationQuality = .high
+        let flipVertical = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: newSize.height)
         
-        CGContextConcatCTM(context, flipVertical)
+        context?.concatenate(flipVertical)
         // Draw into the context; this scales the image
-        CGContextDrawImage(context, newRect, imageRef)
+        context?.draw(imageRef!, in: newRect)
         
-        let newImageRef = CGBitmapContextCreateImage(context)! as CGImage
-        let newImage = UIImage(CGImage: newImageRef)
+        let newImageRef = (context?.makeImage()!)! as CGImage
+        let newImage = UIImage(cgImage: newImageRef)
         
         // Get the resized image from the context and a UIImage
         UIGraphicsEndImageContext()
@@ -42,21 +42,21 @@ public class Utils {
     }
     
     class func listAvailableFonts() {
-        for family: String in UIFont.familyNames() {
+        for family: String in UIFont.familyNames {
             print("\(family)")
-            for names: String in UIFont.fontNamesForFamilyName(family) {
+            for names: String in UIFont.fontNames(forFamilyName: family) {
                 print("== \(names)")
             }
         }
     }
     
-    class func prepareMail(title: String, body: String, recipient: String, attachment: String?) -> MFMailComposeViewController? {
+    class func prepareMail(_ title: String, body: String, recipient: String, attachment: String?) -> MFMailComposeViewController? {
         if MFMailComposeViewController.canSendMail() {
             let mc = MFMailComposeViewController()
             mc.setSubject(title)
             mc.setMessageBody(body, isHTML: true)
             mc.setToRecipients([recipient])
-            if let data = attachment?.dataUsingEncoding(NSUTF8StringEncoding) {
+            if let data = attachment?.data(using: String.Encoding.utf8) {
                 mc.addAttachmentData(data, mimeType: "application/csv", fileName: "submission.csv")
             }
             

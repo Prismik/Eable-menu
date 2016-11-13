@@ -35,24 +35,31 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
         self.tableView = UITableView()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "subtitleCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "subtitleCell")
         self.tableView.rowHeight = 50
-        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - self.navigationController!.navigationBar.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height)
+        self.tableView.backgroundColor = Colors.eableBlack()
+        self.tableView.separatorColor = Colors.eableClay()
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - self.navigationController!.navigationBar.frame.size.height - UIApplication.shared.statusBarFrame.size.height)
         
         self.view.addSubview(self.tableView)
         //self.subView = SubView(controller: self)
         //self.subView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - self.navigationController!.navigationBar.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height)
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let selectedCell: UITableViewCell = tableView.cellForRow(at: indexPath)!
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (items[dataOrder[section]]?.count)!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let topMenu = self.navigationController as? TopMenuController {
             let title: String = dataOrder[indexPath.section]
             let selectedItem: MenuNode = items[title]![indexPath.row]
@@ -61,36 +68,40 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 topMenu.pushViewController(controller, animated: true)
             }
             else if let item: MenuItem = selectedItem as? MenuItem {
-                
+                let controller = ProductViewController(item: item)
+                topMenu.pushViewController(controller, animated: true)
             }
         }
     }
     
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         // Gets the header view as a UITableViewHeaderFooterView and changes the text colour and adds above blur effect
         let headerView: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         headerView.textLabel!.textColor = Colors.eableBlack()
         headerView.textLabel!.font = UIFont(name: "SFUIText-Bold", size: 14)!
-        headerView.tintColor = Colors.eableViolet()
+        headerView.tintColor = Colors.eableClay()
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return dataOrder[section]
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let title: String = dataOrder[indexPath.section]
         let item = items[title]![indexPath.row]
         
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "subtitleCell")
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "subtitleCell")
         cell.backgroundColor = Colors.eableBlack()
-        cell.textLabel?.textColor = Colors.eablePink()
+        cell.textLabel?.textColor = Colors.eableClay()
         cell.textLabel?.font = UIFont(name: "SFUIText-Bold", size: 12)!
         cell.textLabel?.text = item.title()
         cell.detailTextLabel?.text = item.subtitle()
-        cell.detailTextLabel?.textColor = Colors.eablePink()
+        cell.detailTextLabel?.textColor = Colors.eableViolet()
         cell.detailTextLabel?.font = UIFont(name: "SFUIText-Regular", size: 12)!
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.layoutMargins = UIEdgeInsets.zero
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.preservesSuperviewLayoutMargins = false
         
         return cell
     }

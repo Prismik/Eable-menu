@@ -34,18 +34,18 @@ class MenuItemGroup: MenuNode {
         visibleTo = 24
     }
     
-    func setVisibleInterval(from: Int, to: Int) {
+    func setVisibleInterval(_ from: Int, to: Int) {
         visibleFrom = from
         visibleTo = to
     }
     
     func shouldBeDisplayed() -> Bool {
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(NSCalendarUnit.Hour, fromDate: date)
+        let date = Date()
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components(NSCalendar.Unit.hour, from: date)
         let hour = components.hour
         
-        return visibleFrom <= hour && hour <= visibleTo
+        return visibleFrom <= hour! && hour! <= visibleTo
     }
     
     func showContainedItem() {
@@ -60,7 +60,7 @@ class MenuItemGroup: MenuNode {
         
     }
     
-    func addChild(node: MenuNode, toCategory category: String) {
+    func addChild(_ node: MenuNode, toCategory category: String) {
         if childrenNode[category] == nil {
             childrenOrder.append(category)
             childrenNode[category] = []

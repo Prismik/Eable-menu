@@ -1,23 +1,15 @@
 PODS:
-  - Alamofire (3.4.1)
-  - Concorde (0.2.0):
-    - Concorde/Core (= 0.2.0)
-    - Concorde/UI (= 0.2.0)
-  - Concorde/Core (0.2.0)
-  - Concorde/UI (0.2.0):
-    - Concorde/Core
-  - SwiftyJSON (2.3.2)
+  - Alamofire (4.0.1)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - Alamofire
-  - Concorde
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  Concorde: 7321c727200f4cbccd119249ea491c548065da29
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 0591f98e38635d238397cc403f8712f82f68ecf2
+PODFILE CHECKSUM: 97496f9e0cf3aefa6d0e522e5dab0fadca9da680
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

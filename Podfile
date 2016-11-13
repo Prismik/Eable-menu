@@ -8,8 +8,6 @@ target 'Menu' do
   # Pods for Menu
   pod 'SwiftyJSON'
   pod 'Alamofire'
-  pod 'Concorde'
-
 
   target 'MenuTests' do
     inherit! :search_paths
