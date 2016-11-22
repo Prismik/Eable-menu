@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var productView: ProductView!
@@ -45,14 +46,36 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func orderChallenge() {
         // TODO Try to http send the request
-        Alamofire.request("https://jsonplaceholder.typicode.com/posts/1").responseJSON { response in
+        let id: String = "A1BC2-D3EF4-G5HI6"
+        let params: Parameters? = [
+            "title": self.currentItem.title(),
+            "cost": self.currentItem.cost()
+        ]
+        
+        let url = "http://127.0.0.1:8080/orders/\(id)"
+        let header: HTTPHeaders? = nil
+        let encoding: ParameterEncoding = JSONEncoding.default
+        let post = HTTPMethod.post
+        
+        Alamofire.request(url, method: post, parameters: params, encoding: encoding, headers: header).responseJSON { response in
+            if response.result.isSuccess {
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    if json["status"].string == "success" {
+                        SweetAlert().showAlert("A fine choice", subTitle: "We will shortly prepare your order !", style: AlertStyle.success)
+                    }
+                }
+            }
+        }
+        /*
+        Alamofire.request("http://127.0.0.1:8080/orders").responseJSON { response in
             debugPrint(response)
             
             if let json = response.result.value {
                 print("JSON: \(json)")
             }
         }
-        
+        */
         // TODO Spinner
     }
     
