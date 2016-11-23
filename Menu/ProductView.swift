@@ -86,7 +86,7 @@ class ProductView: UIView {
         let optionsTable = UITableView()
         optionsTable.translatesAutoresizingMaskIntoConstraints = false
         optionsTable.rowHeight = 30
-        optionsTable.backgroundColor = Colors.eableDarkViolet()
+        optionsTable.backgroundColor = Colors.eableBlack()
         optionsTable.separatorColor = Colors.eableClay()
         optionsTable.dataSource = self.controller
         optionsTable.delegate = self.controller

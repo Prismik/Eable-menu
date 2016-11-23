@@ -28,7 +28,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = Colors.eableDarkViolet()
+        self.view.backgroundColor = Colors.eableBlack()
         
         let navigationController = self.navigationController as! TopMenuController
         navigationController.navigationBar.backItem?.title = "Back"
@@ -67,15 +67,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
         }
-        /*
-        Alamofire.request("http://127.0.0.1:8080/orders").responseJSON { response in
-            debugPrint(response)
-            
-            if let json = response.result.value {
-                print("JSON: \(json)")
-            }
-        }
-        */
+
         // TODO Spinner
     }
     
@@ -106,7 +98,7 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell()
         cell.textLabel?.text = currentItem.options()[indexPath.row].title()
-        cell.backgroundColor = Colors.eableDarkViolet()
+        cell.backgroundColor = Colors.eableBlack()
         cell.textLabel?.textColor = Colors.eableClay()
         cell.detailTextLabel?.textColor = Colors.eableViolet()
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
