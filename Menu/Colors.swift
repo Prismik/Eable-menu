@@ -29,4 +29,8 @@ open class Colors {
     class func eableBlack() -> UIColor {
         return rgb(r: 53, g: 92, b: 125)
     }
+    
+    class func eableRed() -> UIColor {
+        return rgb(r: 255, g: 99, b: 71)
+    }
 }

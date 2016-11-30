@@ -34,6 +34,11 @@ class MenuItem: MenuNode {
         return itemDescription
     }
     
+    func resetOptions() {
+        for option in itemOptions {
+            option.reset()
+        }
+    }
     func showContainedItem() {
         //
     }

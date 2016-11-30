@@ -25,4 +25,8 @@ class MenuItemOption {
     func toggle() {
         isEnabled = !isEnabled
     }
+    
+    func reset() {
+        isEnabled = false
+    }
 }

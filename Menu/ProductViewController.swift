@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuItemOptionDelegate {
     var productView: ProductView!
     var currentItem: MenuItem
     
@@ -38,6 +38,15 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.view.addSubview(productView)
         productView.appear()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParentViewController
+        {
+            currentItem.resetOptions()
+        }
     }
     
     private func order() {
@@ -71,6 +80,10 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
         // TODO Spinner
     }
     
+    func didToggleOption() {
+        self.productView.priceLabel.text = "\(currentItem.cost()) $"
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -96,15 +109,9 @@ class ProductViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell()
-        cell.textLabel?.text = currentItem.options()[indexPath.row].title()
-        cell.backgroundColor = Colors.eableBlack()
-        cell.textLabel?.textColor = Colors.eableClay()
-        cell.detailTextLabel?.textColor = Colors.eableViolet()
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        cell.layoutMargins = UIEdgeInsets.zero
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.preservesSuperviewLayoutMargins = false
+        
+        let cell: MenuItemOptionCell = MenuItemOptionCell(style: UITableViewCellStyle.value1, reuseIdentifier: "option", option: currentItem.options()[indexPath.row], parent: self)
+        //cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         
         return cell
     }

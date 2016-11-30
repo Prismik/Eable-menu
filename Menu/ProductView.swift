@@ -11,7 +11,7 @@ import UIKit
 
 class ProductView: UIView {
     var controller: ProductViewController
-    
+    var priceLabel: UILabel!
     init(controller: ProductViewController) {
         self.controller = controller
         super.init(frame: CGRect())
@@ -90,10 +90,11 @@ class ProductView: UIView {
         optionsTable.separatorColor = Colors.eableClay()
         optionsTable.dataSource = self.controller
         optionsTable.delegate = self.controller
+        optionsTable.register(MenuItemOptionCell.self, forCellReuseIdentifier: "option")
         
         self.addSubview(optionsTable)
         
-        let priceLabel = UILabel()
+        priceLabel = UILabel()
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.textAlignment = NSTextAlignment.center
         priceLabel.text = "\(controller.currentItem.cost()) $"

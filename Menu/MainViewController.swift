@@ -35,6 +35,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Benedicts
         let traditional = MenuItem(cost: 14, title: "Traditional", subtitle: "Ham, cheddar, hollandaise", description: "Served with fresh fruits & roasted potatoes + coffee or tea With toast +1$")
         traditional.addOption(option: MenuItemOption(title: "Toast", cost: 1.0, enabledByDefault: false))
+        traditional.addOption(option: MenuItemOption(title: "Extra bacon", cost: 2.5, enabledByDefault: false))
+        traditional.addOption(option: MenuItemOption(title: "Extra pancake", cost: 2.0, enabledByDefault: false))
         breakfast.addChild(traditional, toCategory: "Benedicts")
         breakfast.addChild(MenuItem(cost: 12, title: "Florentine", subtitle: "Spinach, cheddar, hollandaise", description: ""), toCategory: "Benedicts")
         breakfast.addChild(MenuItem(cost: 10, title: "Forestier", subtitle: "Mushrooms, swiss cheese, hollandaise", description: ""), toCategory: "Benedicts")
